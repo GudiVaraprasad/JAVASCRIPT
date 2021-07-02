@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JAVASCRIPT - STOPWATCH</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 1%;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        background-color: rgba(0, 0, 0, 0.829);
+        color: white;
+      }
+      h1 {
+        font-size: 30px;
+      }
+      p {
+        color: rgb(54, 240, 8);
+      }
+      .inst {
+        font-size: 24px;
+        font-weight: 800;
+        line-break: auto;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        padding: 3%;
+        border: 2.5px solid rgb(250, 233, 3);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Stop Watch</h1>
+    <p>open console to use it !</p>
+    <br />
+    <div class="inst">
+      <p>How to use ?</p>
+      <ul>
+        <li>Enter this - const sw = new Stopwatch();</li>
+        <li>To run the stopwatch - sw.start()</li>
+        <li>To stop the stopwatch - sw.stop()</li>
+        <li>To see the duration of stopwatch - sw.duration()</li>
+        <li>To reset the duration of stopwatch - sw.reset()</li>
+      </ul>
+    </div>
+
+    <script>
+      // Javascript Stopwatch object using OOPS concepts..
+
+      function Stopwatch() {
+        let startTime,
+          endTime,
+          running,
+          duration = 0;
+
+        this.start = function () {
+          if (running) throw new Error("Stopwatch is already started.");
+
+          running = true;
+
+          startTime = new Date();
+        };
+
+        this.stop = function () {
+          if (!running) throw new Error("Stopwatch is not started.");
+
+          running = false;
+          endTime = new Date();
+
+          const seconds = (endTime.getTime() - startTime.getTime()) / 1000;
+          duration += seconds;
+        };
+
+        this.reset = function () {
+          startTime = null;
+          endTime = null;
+          running = false;
+          duration = 0;
+          console.log("Stopwatch reset successful.");
+        };
+
+        Object.defineProperty(this, "duration", {
+          get: function () {
+            return duration;
+          },
+        });
+      }
+    </script>
+  </body>
+</html>
