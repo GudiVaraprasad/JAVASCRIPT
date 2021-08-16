@@ -1,0 +1,15 @@
+{
+  "name": "gvp",
+  "version": "1.0.0",
+  "description": "It's a hello world",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gudi",
+  "type": "module",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
