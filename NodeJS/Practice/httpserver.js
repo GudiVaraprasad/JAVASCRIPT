@@ -7,7 +7,7 @@ const server  = http.createServer((req, res)=>{
     console.log(req.url)
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/html')
-    res.end('<h1> This is CodeWithHarry</h1> <p> Hey this is the way to rock the world!</p>');
+    res.end('<h1> This is Gudi Varaprasad</h1> <p> I am just typing some randomly !</p>');
 })
 
 server.listen(port, ()=>{
